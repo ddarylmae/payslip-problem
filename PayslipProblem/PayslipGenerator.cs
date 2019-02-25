@@ -22,12 +22,12 @@ namespace PayslipProblem
 
         public uint CalculateIncomeTax(uint annualIncome)
         {
-            throw new NotImplementedException();
+            return 0;
         }
 
         public uint CalculateNetIncome(uint annualIncome)
         {
-            throw new NotImplementedException();
+            return 0;
         }
 
         public uint CalculateSuper(uint netIncome, uint superRate)
