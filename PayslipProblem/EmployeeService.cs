@@ -16,22 +16,24 @@ namespace PayslipProblem
 
             Console.WriteLine("Please enter your annual salary: ");
             string salaryInput = Console.ReadLine();
-            
-            if (int.TryParse(salaryInput, out var salary) && salary >= 0)
+            int salary;
+            while (!int.TryParse(salaryInput, out salary) || salary < 0)
             {
-                employee.AnnualSalary = salary;
+                Console.WriteLine("Please enter a valid annual salary value: ");
+                salaryInput = Console.ReadLine();
             }
-            else
-            {
-                Console.WriteLine("Invalid salary");
-            }
+
+            employee.AnnualSalary = salary;
             
             Console.WriteLine("Please enter your super rate: ");
-            string superRate = Console.ReadLine();
-            if(float.TryParse(superRate, out var rate))
+            var superRateInput = Console.ReadLine();
+            float rate;
+            while (!float.TryParse(superRateInput, out rate) || rate < 0 || rate > 50)
             {
-                employee.SuperRate = rate;
+                Console.WriteLine("Please enter a valid super rate value (0-50): ");
+                superRateInput = Console.ReadLine();
             }
+            employee.SuperRate = rate;
             
             Console.WriteLine("Please enter your payment start date: ");
             employee.StartDate = Console.ReadLine();
