@@ -22,7 +22,30 @@ namespace PayslipProblem
 
         public int CalculateIncomeTax(int annualIncome)
         {
-            return 0;
+            int netIncome;
+            
+            if (annualIncome > 180000)
+            {
+                netIncome = (int) Math.Round((annualIncome - 180000) * 0.45 + 54232);
+            }
+            else if (annualIncome > 87000)
+            {
+                netIncome = (int) Math.Round((annualIncome - 87000) * 0.37 + 19822);
+            }
+            else if(annualIncome > 37000)
+            {
+                netIncome = (int) Math.Round((annualIncome - 37000) * 0.325 + 3572);
+            }
+            else if(annualIncome > 18200)
+            {
+                netIncome = (int) Math.Round((annualIncome - 18200) * 0.19);
+            }
+            else
+            {
+                netIncome = 0;
+            }
+
+            return netIncome;
         }
 
         public int CalculateNetIncome(int annualIncome)

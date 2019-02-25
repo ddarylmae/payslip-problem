@@ -30,7 +30,7 @@ namespace PayslipProblemTests
         [TestCase(10000, 0)]
         [TestCase(18200, 0)]
         [TestCase(18201, 0)]
-        [TestCase(25000, 4864)]
+        [TestCase(25000, 1292)]
         [TestCase(37000, 3572)]
         [TestCase(37001, 3572)]
         [TestCase(50000, 7797)]
