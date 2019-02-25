@@ -27,7 +27,8 @@ namespace PayslipProblem
                               $"Gross Income: {payslip.GrossIncome} \n" + 
                               $"Income Tax: {payslip.IncomeTax} \n" + 
                               $"Net Income: {payslip.NetIncome} \n" +
-                              $"Super: {payslip.Super}");
+                              $"Super: {payslip.Super} \n\n" + 
+                              "Thank you for using MYOB!");
         }
 
         public int CalculateGrossIncome(int annualIncome)
