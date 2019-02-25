@@ -7,6 +7,6 @@ namespace PayslipProblem
         int CalculateGrossIncome(int annualIncome);
         int CalculateIncomeTax(int annualIncome);
         int CalculateNetIncome(int grossIncome, int incomeTax);
-        int CalculateSuper(int netIncome, int superRate);
+        int CalculateSuper(int netIncome, float superRate);
     }
 }

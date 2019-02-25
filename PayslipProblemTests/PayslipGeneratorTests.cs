@@ -63,5 +63,16 @@ namespace PayslipProblemTests
             // Assert
             Assert.AreEqual(expectedNetIncome, actualNetIncome);
         }
+
+        [TestCase(5004, 9, 450)]
+        public void CorrectSuperIsReturned(int grossIncome, float superRate, int expectedSuper)
+        {
+            // Arrange
+            
+            // Act
+            var actualSuper = _payslipGenerator.CalculateSuper(grossIncome, superRate);
+
+            Assert.AreEqual(expectedSuper, actualSuper);
+        }
     }
 }

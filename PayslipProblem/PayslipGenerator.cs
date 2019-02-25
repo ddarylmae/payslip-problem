@@ -53,9 +53,9 @@ namespace PayslipProblem
             return grossIncome - incomeTax;
         }
 
-        public int CalculateSuper(int netIncome, int superRate)
+        public int CalculateSuper(int netIncome, float superRate)
         {
-            return 0;
+            return (int) Math.Round(netIncome * (superRate/100));
         }
     }
 }
