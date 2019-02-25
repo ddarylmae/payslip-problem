@@ -40,12 +40,25 @@ namespace PayslipProblemTests
         [TestCase(180000, 54232)]
         [TestCase(180001, 54232)]
         [TestCase(200000, 63232)]
-        public void CorrectIncomeTaxIsReturned(int grossIncome, int expectedNetIncome)
+        public void CorrectIncomeTaxIsReturned(int grossIncome, int expectedIncomeTax)
         {
             // Arrange
             
             // Act
-            var actualNetIncome = _payslipGenerator.CalculateIncomeTax(grossIncome);
+            var actualIncomeTax = _payslipGenerator.CalculateIncomeTax(grossIncome);
+
+            // Assert
+            Assert.AreEqual(expectedIncomeTax, actualIncomeTax);
+        }
+
+        [TestCase(1517, 0, 1517)]
+        [TestCase(5004, 922, 4082)]
+        public void CorrectNetIncomeIsReturned(int grossIncome, int incomeTax, int expectedNetIncome)
+        {
+            // Arrange
+            
+            // Act
+            var actualNetIncome = _payslipGenerator.CalculateNetIncome(grossIncome, incomeTax);
 
             // Assert
             Assert.AreEqual(expectedNetIncome, actualNetIncome);

@@ -6,7 +6,7 @@ namespace PayslipProblem
         void DisplayPayslipDetails(PayslipDetails payslip);
         int CalculateGrossIncome(int annualIncome);
         int CalculateIncomeTax(int annualIncome);
-        int CalculateNetIncome(int annualIncome);
+        int CalculateNetIncome(int grossIncome, int incomeTax);
         int CalculateSuper(int netIncome, int superRate);
     }
 }

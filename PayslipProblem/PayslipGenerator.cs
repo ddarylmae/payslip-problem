@@ -48,7 +48,7 @@ namespace PayslipProblem
             return netIncome;
         }
 
-        public int CalculateNetIncome(int annualIncome)
+        public int CalculateNetIncome(int grossIncome, int incomeTax)
         {
             return 0;
         }
