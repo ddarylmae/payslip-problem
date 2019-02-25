@@ -37,26 +37,24 @@ namespace PayslipProblem
 
         public int CalculateIncomeTax(int annualSalary)
         {
-            var netIncome = 0;
-            
             if (annualSalary > 180000)
             {
-                netIncome = (int) Math.Round(((annualSalary - 180000) * 0.45 + 54232) / 12);
+                return (int) Math.Round(((annualSalary - 180000) * 0.45 + 54232) / 12);
             }
-            else if (annualSalary > 87000)
+            if (annualSalary > 87000)
             {
-                netIncome = (int) Math.Round(((annualSalary - 87000) * 0.37 + 19822) / 12);
+                return (int) Math.Round(((annualSalary - 87000) * 0.37 + 19822) / 12);
             }
-            else if(annualSalary > 37000)
+            if(annualSalary > 37000)
             {
-                netIncome = (int) Math.Round(((annualSalary - 37000) * 0.325 + 3572) / 12);
+                return (int) Math.Round(((annualSalary - 37000) * 0.325 + 3572) / 12);
             }
-            else if(annualSalary > 18200)
+            if(annualSalary > 18200)
             {
-                netIncome = (int) Math.Round((annualSalary - 18200) * 0.19 / 12);
+                return (int) Math.Round((annualSalary - 18200) * 0.19 / 12);
             }
 
-            return netIncome;
+            return 0;
         }
 
         public int CalculateNetIncome(int grossIncome, int incomeTax)
