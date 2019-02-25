@@ -4,9 +4,9 @@ namespace PayslipProblem
     {
         public string Name { get; set; }
         public string PayPeriod { get; set; }
-        public uint GrossIncome { get; set; }
-        public uint IncomeTax { get; set; }
-        public uint NetIncome { get; set; }
-        public uint Super { get; set; }
+        public int GrossIncome { get; set; }
+        public int IncomeTax { get; set; }
+        public int NetIncome { get; set; }
+        public int Super { get; set; }
     }
 }

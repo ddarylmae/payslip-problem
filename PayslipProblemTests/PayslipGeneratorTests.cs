@@ -20,7 +20,7 @@ namespace PayslipProblemTests
             // Arrange
             
             // Act
-            var actualGrossIncome = _payslipGenerator.CalculateGrossIncome((uint)annualSalary);
+            var actualGrossIncome = _payslipGenerator.CalculateGrossIncome(annualSalary);
 
             // Assert
             Assert.AreEqual(expectedGrossIncome, actualGrossIncome);
@@ -45,7 +45,7 @@ namespace PayslipProblemTests
             // Arrange
             
             // Act
-            var actualNetIncome = _payslipGenerator.CalculateIncomeTax((uint)grossIncome);
+            var actualNetIncome = _payslipGenerator.CalculateIncomeTax(grossIncome);
 
             // Assert
             Assert.AreEqual(expectedNetIncome, actualNetIncome);

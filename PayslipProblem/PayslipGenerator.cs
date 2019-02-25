@@ -15,24 +15,24 @@ namespace PayslipProblem
                               $"Pay period: {payslip.PayPeriod}");
         }
 
-        public uint CalculateGrossIncome(uint annualIncome)
+        public int CalculateGrossIncome(int annualIncome)
         {
-            return (uint) Math.Round(annualIncome / 12.0);
+            return (int) Math.Round(annualIncome / 12.0);
         }
 
-        public uint CalculateIncomeTax(uint annualIncome)
+        public int CalculateIncomeTax(int annualIncome)
         {
             return 0;
         }
 
-        public uint CalculateNetIncome(uint annualIncome)
+        public int CalculateNetIncome(int annualIncome)
         {
             return 0;
         }
 
-        public uint CalculateSuper(uint netIncome, uint superRate)
+        public int CalculateSuper(int netIncome, int superRate)
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }

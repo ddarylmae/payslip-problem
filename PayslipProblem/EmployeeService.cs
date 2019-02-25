@@ -19,7 +19,7 @@ namespace PayslipProblem
             
             if (int.TryParse(salaryInput, out var salary) && salary >= 0)
             {
-                employee.AnnualSalary = (uint) salary;
+                employee.AnnualSalary = salary;
             }
             else
             {
