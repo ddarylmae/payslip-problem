@@ -50,7 +50,7 @@ namespace PayslipProblem
 
         public int CalculateNetIncome(int grossIncome, int incomeTax)
         {
-            return 0;
+            return grossIncome - incomeTax;
         }
 
         public int CalculateSuper(int netIncome, int superRate)
