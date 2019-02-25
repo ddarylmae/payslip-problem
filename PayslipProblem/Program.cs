@@ -10,7 +10,8 @@ namespace PayslipProblem
             var employee = employeeService.GetEmployeeDetailsFromUser();
             
             IPayslipGenerator payslipGenerator = new PayslipGenerator();
-            
+            var payslip = payslipGenerator.GetPayslipDetails(employee);
+            payslipGenerator.DisplayPayslipDetails(payslip);
         }
     }
 }

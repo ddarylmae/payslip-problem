@@ -6,13 +6,28 @@ namespace PayslipProblem
     {
         public PayslipDetails GetPayslipDetails(EmployeeDetails employee)
         {
-            return null;
+            var payslip = new PayslipDetails
+            {
+                Name = $"{employee.FirstName} {employee.Surname}",
+                PayPeriod = $"{employee.StartDate} - {employee.EndDate}",
+                GrossIncome = CalculateGrossIncome(employee.AnnualSalary),
+                IncomeTax = CalculateIncomeTax(employee.AnnualSalary)
+            };
+
+            payslip.NetIncome = CalculateNetIncome(payslip.GrossIncome, payslip.IncomeTax);
+            payslip.Super = CalculateSuper(payslip.GrossIncome, employee.SuperRate);
+
+            return payslip;
         }
         
         public void DisplayPayslipDetails(PayslipDetails payslip)
         {
             Console.WriteLine($"Name: {payslip.Name} \n" + 
-                              $"Pay period: {payslip.PayPeriod}");
+                              $"Pay Period: {payslip.PayPeriod} \n"+
+                              $"Gross Income: {payslip.GrossIncome} \n" + 
+                              $"Income Tax: {payslip.IncomeTax} \n" + 
+                              $"Net Income: {payslip.NetIncome} \n" +
+                              $"Super: {payslip.Super}");
         }
 
         public int CalculateGrossIncome(int annualIncome)
@@ -20,29 +35,25 @@ namespace PayslipProblem
             return (int) Math.Round(annualIncome / 12.0);
         }
 
-        public int CalculateIncomeTax(int annualIncome)
+        public int CalculateIncomeTax(int annualSalary)
         {
-            int netIncome;
+            var netIncome = 0;
             
-            if (annualIncome > 180000)
+            if (annualSalary > 180000)
             {
-                netIncome = (int) Math.Round((annualIncome - 180000) * 0.45 + 54232);
+                netIncome = (int) Math.Round(((annualSalary - 180000) * 0.45 + 54232) / 12);
             }
-            else if (annualIncome > 87000)
+            else if (annualSalary > 87000)
             {
-                netIncome = (int) Math.Round((annualIncome - 87000) * 0.37 + 19822);
+                netIncome = (int) Math.Round(((annualSalary - 87000) * 0.37 + 19822) / 12);
             }
-            else if(annualIncome > 37000)
+            else if(annualSalary > 37000)
             {
-                netIncome = (int) Math.Round((annualIncome - 37000) * 0.325 + 3572);
+                netIncome = (int) Math.Round(((annualSalary - 37000) * 0.325 + 3572) / 12);
             }
-            else if(annualIncome > 18200)
+            else if(annualSalary > 18200)
             {
-                netIncome = (int) Math.Round((annualIncome - 18200) * 0.19);
-            }
-            else
-            {
-                netIncome = 0;
+                netIncome = (int) Math.Round((annualSalary - 18200) * 0.19 / 12);
             }
 
             return netIncome;
@@ -53,9 +64,9 @@ namespace PayslipProblem
             return grossIncome - incomeTax;
         }
 
-        public int CalculateSuper(int netIncome, float superRate)
+        public int CalculateSuper(int grossIncome, float superRate)
         {
-            return (int) Math.Round(netIncome * (superRate/100));
+            return (int) Math.Round(grossIncome * (superRate/100));
         }
     }
 }

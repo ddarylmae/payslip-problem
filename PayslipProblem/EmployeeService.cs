@@ -39,10 +39,6 @@ namespace PayslipProblem
             Console.WriteLine("Please enter your payment end date: ");
             employee.EndDate = Console.ReadLine();
             
-            // TODO Remove display details
-            Console.WriteLine($"\nDetails: {employee.FirstName} {employee.Surname} \n{employee.AnnualSalary}\n{employee.SuperRate}" + 
-                              $"\n{employee.StartDate}\n{employee.EndDate}");
-
             return employee;
         }
     }
